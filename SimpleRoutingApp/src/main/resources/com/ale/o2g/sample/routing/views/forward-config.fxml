@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+* Copyright 2022 ALE International
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+* software and associated documentation files (the "Software"), to deal in the Software 
+* without restriction, including without limitation the rights to use, copy, modify, merge, 
+* publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons 
+* to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or 
+* substantial portions of the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
+* BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+* DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+
+<?import javafx.scene.control.Dialog?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+ <DialogPane prefWidth="380.0" prefHeight="190.0"
+	xmlns:fx="http://javafx.com/fxml">
+	<fx:define>
+		<ToggleGroup fx:id="forwardGroup"/>  
+	</fx:define>
+	<content>
+   		<GridPane alignment="TOP_LEFT" vgap="10.0" hgap="10.0">
+		    <children>
+				<RadioButton fx:id="rbNone" text="None" toggleGroup="$forwardGroup"
+					GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+					
+				<RadioButton fx:id="rbVoicemail" text=" "  toggleGroup="$forwardGroup"
+					GridPane.columnIndex="0" GridPane.rowIndex="1">
+			   		<graphic>
+						<ImageView>
+			               	<image>
+								<Image url="@../images/forward_voicemail.png" />
+			                 </image>
+			          	</ImageView>
+			     	</graphic>
+					
+				</RadioButton>
+					
+				<Label text="Voice mail"	
+					GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+					
+				<RadioButton fx:id="rbNumber" text=" "  toggleGroup="$forwardGroup"
+					GridPane.columnIndex="0" GridPane.rowIndex="2">
+			   		<graphic>
+						<ImageView>
+			               	<image>
+								<Image url="@../images/forward_number.png" />
+			                 </image>
+			          	</ImageView>
+			     	</graphic>
+				</RadioButton>					
+					
+				<Label text="Number"	
+					GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+				<TextField fx:id="tfNumber" prefWidth="200.0"
+					GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+					
+				<Label text="Condition"	
+					GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+				<ComboBox fx:id="cbCondition" prefWidth="200.0" 
+					GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+		    </children>
+		</GridPane>
+	</content>
+		
+	<buttonTypes>
+        <ButtonType fx:id="buttonTypeApply" text="Apply" buttonData="APPLY"/>
+        <ButtonType text="Cancel" buttonData="CANCEL_CLOSE"/>
+    </buttonTypes>
+</DialogPane>
